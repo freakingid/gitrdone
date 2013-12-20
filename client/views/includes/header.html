@@ -8,6 +8,9 @@
       </a>
       <a class="brand" href="{{pathFor 'tasksList'}}">GitRDone</a>
       <div class="nav-collapse collapse">
+        <ul class="nav">
+          {{#if currentUser}}<li><a href="{{pathFor 'taskSubmit'}}">New Task</a></li>{{/if}}
+        </ul>
         <ul class="nav pull-right">
           <li>{{loginButtons}}</li>
         </ul>

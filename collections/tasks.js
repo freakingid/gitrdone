@@ -40,7 +40,8 @@ Meteor.methods({
     var task = _.extend(_.pick(taskAttributes, 'url', 'title', 'message'), {
       userId: user._id,
       author: user.username,
-      submitted: new Date().getTime()
+      submitted: new Date().getTime(),
+      commentsCount: 0
     });
 
     var taskId = Tasks.insert(task);

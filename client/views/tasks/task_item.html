@@ -2,6 +2,10 @@
   <div class="task">
     <div class="task-content">
       <h3><a href="{{url}}">{{title}}</a><span>{{domain}}</span></h3>
+      <p>
+        submitted by {{author}}
+        {{#if ownTask}}<a href="{{pathFor 'taskEdit'}}">Edit</a>{{/if}}
+      </p>
     </div>
     <a href="{{pathFor 'taskPage'}}" class="discuss btn">Discuss</a>
   </div>

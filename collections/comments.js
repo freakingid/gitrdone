@@ -18,7 +18,10 @@ Meteor.methods({
     });
     // update task with number of comments
     Tasks.update(comment.taskId, {$inc: {commentsCount: 1}});
-    // insert comment and return results
-    return Comments.insert(comment);
+    // insert the comment and save the ID
+    comment._id = Comments.insert(comment);
+    // create notification to author
+    createCommentNotification(comment);
+    return comment._id;
   }
 });

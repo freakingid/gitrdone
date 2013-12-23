@@ -5,3 +5,7 @@ Meteor.publish('tasks', function() {
 Meteor.publish('comments', function(taskId) {
   return Comments.find({taskId: taskId});
 });
+
+Meteor.publish('notifications', function() {
+  return Notifications.find();
+});

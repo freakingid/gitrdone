@@ -1,5 +1,8 @@
-Meteor.publish('tasks', function() {
-  return Tasks.find();
+Meteor.publish('tasks', function(options) {
+  return Tasks.find({}, options);
+});
+Meteor.publish('singleTask', function(id) {
+  return id && Tasks.find(id);
 });
 
 Meteor.publish('comments', function(taskId) {

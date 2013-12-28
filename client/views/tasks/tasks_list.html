@@ -3,5 +3,8 @@
     {{#each tasks}}
       {{> taskItem}}
     {{/each}}
+    {{#if hasMoreTasks}}
+      <a class="load-more" href="{{nextPath}}">Load more</a>
+    {{/if}}
   </div>
 </template>

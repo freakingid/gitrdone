@@ -55,4 +55,14 @@ if (Tasks.find().count() === 0) {
     submitted: now - 12 * 3600 * 1000,
     commentsCount: 0
   });
+  for (var i = 0; i < 10; i++) {
+    Tasks.insert({
+      title: 'Test task #' + i,
+      author: paul.profile.name,
+      userId: paul._id,
+      url: 'http://goodlearning.com/?q=test-' + i,
+      submitted: now - i * 3600 * 1000,
+      commentsCount: 0
+    });
+  }
 }

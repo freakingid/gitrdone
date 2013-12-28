@@ -13,13 +13,16 @@ if (Tasks.find().count() === 0) {
   });
   var leigh = Meteor.users.findOne(leighId);
 
+  // create a task with comments
   var engine42Id = Tasks.insert({
     title: 'Introducing Engine42',
     userId: paul._id,
     author: paul.profile.name,
     url: 'http://engine42.info/',
     submitted: now - 7 * 3600 * 1000,
-    commentsCount: 2
+    commentsCount: 2,
+    upvoters: [],
+    votes: 0
   });
 
   Comments.insert({
@@ -44,7 +47,9 @@ if (Tasks.find().count() === 0) {
     author: leigh.profile.name,
     url: 'http://goodlearning.com',
     submitted: now - 10 * 3600 * 1000,
-    commentsCount: 0
+    commentsCount: 0,
+    upvoters: [],
+    votes: 0
   });
 
   Tasks.insert({
@@ -53,7 +58,9 @@ if (Tasks.find().count() === 0) {
     author: leigh.profile.name,
     url: 'http://gogobotbot.com',
     submitted: now - 12 * 3600 * 1000,
-    commentsCount: 0
+    commentsCount: 0,
+    upvoters: [],
+    votes: 0
   });
   for (var i = 0; i < 10; i++) {
     Tasks.insert({
@@ -62,7 +69,9 @@ if (Tasks.find().count() === 0) {
       userId: paul._id,
       url: 'http://goodlearning.com/?q=test-' + i,
       submitted: now - i * 3600 * 1000,
-      commentsCount: 0
+      commentsCount: 0,
+    upvoters: [],
+    votes: 0
     });
   }
 }

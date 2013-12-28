@@ -6,11 +6,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="{{pathFor 'tasksList'}}">GitRDone</a>
+      <a class="brand" href="{{pathFor 'home'}}">GitRDone</a>
       <div class="nav-collapse collapse">
         <ul class="nav">
+          <li class="{{activeRouteClass 'home' 'newTasks'}}">
+            <a href="{{pathFor 'newTasks'}}">New</a>
+          </li>
+          <li class="{{activeRouteClass 'bestTasks'}}">
+            <a href="{{pathFor 'bestTasks'}}">Best</a>
+          </li>
           {{#if currentUser}}
-            <li>
+            <li class="{{activeRouteClass 'taskSubmit'}}">
               <a href="{{pathFor 'taskSubmit'}}">New Task</a>
             </li>
             <li class="dropdown">

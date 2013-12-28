@@ -1,10 +1,12 @@
 <template name="taskItem">
   <div class="task">
+    <a href="#" class="upvote btn {{upvotedClass}}">⬆</a>
     <div class="task-content">
       <h3><a href="{{url}}">{{title}}</a><span>{{domain}}</span></h3>
       <p>
+        {{pluralize votes "Vote"}}
         submitted by {{author}},
-        <a href="{{pathFor 'taskPage'}}">{{commentsCount}} comments</a>
+        <a href="{{pathFor 'taskPage'}}">{{pluralize commentsCount "comment"}}</a>
         {{#if ownTask}}<a href="{{pathFor 'taskEdit'}}">Edit</a>{{/if}}
       </p>
     </div>

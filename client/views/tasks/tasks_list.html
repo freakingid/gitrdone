@@ -1,10 +1,14 @@
 <template name="tasksList">
   <div class="tasks">
-    {{#each tasks}}
+    {{#each tasksWithRank}}
       {{> taskItem}}
     {{/each}}
-    {{#if hasMoreTasks}}
-      <a class="load-more" href="{{nextPath}}">Load more</a>
+    {{#if tasksReady}}
+      {{#unless allTasksLoaded}}
+        <a class="load-more" href="#">Load more</a>
+      {{/unless}}
+    {{else}}
+      <div>{{> spinner}}</div>
     {{/if}}
   </div>
 </template>
